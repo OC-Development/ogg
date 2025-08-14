@@ -1,26 +1,56 @@
-<div class="w-full h-full block overflow-y-auto overflow-x-hidden">
-    <div v-for="(v, k) in $root.BossMenuFilterVehicles" class="w-[24.3%] h-[39.3%] flex flex-col float-left mr-[.673vw] mb-[.673vw] hover:scale-[.98]" :class="[(k + 1) % 4 === 0 ? 'no-margin' : '']">
-        <div class="w-full h-[79%] bg-[#000000DE] rounded-[.2604vw] relative">
-            <img src="./img/bossmenu/vehicle-container-effect-gray.png" class="w-[14.5833vw] h-[9.1146vw] right-0 absolute">
-            <div class="w-full h-full flex flex-wrap items-center left-0 top-0 absolute">
-                <div class="w-[4%] h-full"></div>
-                <div class="w-[80%] h-[86%] flex flex-col items-start justify-start relative">
-                    <span class="w-full text-white text-[.8333vw] font-semibold font-['Poppins'] left-0 top-0 absolute">{{ v.label }}</span>
-                    <span class="w-full text-neutral-400 text-[.6771vw] font-semibold font-['regular'] left-0 top-[1vw] absolute">{{ v.model }}</span>
+<div class="w-full h-full block overflow-y-auto overflow-x-hidden p-[1vw] fade-in">
+    <div v-for="(v, k) in $root.BossMenuFilterVehicles" class="w-[24.3%] h-[39.3%] flex flex-col float-left mr-[.673vw] mb-[.673vw] vehicle-card" :class="[(k + 1) % 4 === 0 ? 'no-margin' : '']">
+        <div class="w-full h-[79%] modern-card relative overflow-hidden group">
+            <!-- Background Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-600/10 group-hover:from-cyan-500/20 group-hover:to-blue-600/20 transition-all duration-500"></div>
+            
+            <!-- Vehicle Image Container -->
+            <div class="relative z-10 w-full h-full flex items-center justify-center p-[1vw]">
+                <div class="w-full h-full flex flex-col">
+                    <!-- Vehicle Info -->
+                    <div class="w-full h-[30%] flex flex-col justify-center px-[.5vw]">
+                        <span class="gradient-text text-[.9vw] font-bold font-['Poppins'] mb-[.2vw]">{{ v.label }}</span>
+                        <span class="text-cyan-200 text-[.7vw] font-medium">{{ v.model }}</span>
+                    </div>
+                    
+                    <!-- Vehicle Image -->
+                    <div class="w-full h-[50%] flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-transparent via-cyan-500/5 to-transparent rounded-[.5vw]"></div>
+                        <img :src="v.img" class="max-w-full max-h-full object-contain filter drop-shadow-lg group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    
+                    <!-- Action Button -->
+                    <div class="w-full h-[20%] flex items-center justify-center">
+                        <button class="modern-button px-[1.5vw] py-[.4vw] text-[.6vw] font-semibold rounded-[.4vw] hover:scale-105 transition-all duration-300" @click="$root.OpenEditVehicleScreen(k, v.label, v.model, v.img, v.discount, v.price, v.category)">
+                            {{ $root.Language['edit'] }}
+                        </button>
+                    </div>
                 </div>
-                <div class="w-[16%] h-full"></div>
             </div>
-            <div class="w-[70%] h-full flex items-center justify-center right-0 top-0 absolute">
-                <img :src="v.img" class="w-full h-auto">
-            </div>
-            <div class="w-[26%] h-[13%] flex items-center justify-center bg-[#00F0FF] rounded-[.1vw] left-[.45vw] bottom-[1vw] absolute cursor-pointer" @click="$root.OpenEditVehicleScreen(k, v.label, v.model, v.img, v.discount, v.price, v.category)">
-                <span class="w-full text-black text-[.5208vw] text-center font-semibold font-['Poppins']">{{ $root.Language['edit'] }}</span>
-            </div>
+            
+            <!-- Hover Effect Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-cyan-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
         </div>
+        
         <div class="w-full h-[3%]"></div>
-        <div class="w-full h-[17%] flex items-center justify-between bg-[#000000DE] rounded-[.2604vw]">
-            <span class="w-[49%] text-white text-[.8333vw] font-semibold font-['Poppins'] pl-[.5vw]">{{ $root.Language['stock'] + ': ' + v.stock }}</span>
-            <span class="w-[49%] text-neutral-400 text-[.8333vw] text-right font-semibold font-['Poppins'] pr-[.5vw]">${{ $root.FormatMoney(v.price) }}</span>
+        
+        <!-- Vehicle Stats -->
+        <div class="w-full h-[17%] modern-card p-[.8vw] hover:scale-[1.02] transition-all duration-300">
+            <div class="w-full h-full flex items-center justify-between">
+                <div class="flex flex-col">
+                    <span class="text-white text-[.7vw] font-semibold">{{ $root.Language['stock'] }}</span>
+                    <span class="gradient-text text-[.8vw] font-bold">{{ v.stock }}</span>
+                </div>
+                <div class="flex flex-col text-right">
+                    <span class="text-white text-[.7vw] font-semibold">{{ $root.Language['price'] }}</span>
+                    <span class="gradient-text text-[.8vw] font-bold">${{ $root.FormatMoney(v.price) }}</span>
+                </div>
+            </div>
+            
+            <!-- Stock Progress Bar -->
+            <div class="w-full h-[.2vw] progress-bar mt-[.3vw]">
+                <div class="progress-fill" :style="{ width: Math.min((v.stock / 50) * 100, 100) + '%' }"></div>
+            </div>
         </div>
     </div>
 </div>

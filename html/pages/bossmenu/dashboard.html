@@ -1,162 +1,217 @@
-<div class="w-full h-full flex flex-col">
+<div class="w-full h-full flex flex-col fade-in">
     <div class="w-full h-[11.7%] flex item-center justify-between">
-        <div class="w-[24.3%] h-full bg-[#000000BF] rounded-[.2604vw] relative" style="background-image: url('./img/bossmenu/dashboard/stats-bg.png'); background-size: cover; background-repeat: no-repeat;">
-            <img src="./img/bossmenu/dashboard/employees-img.png" class="w-[6.7188vw] h-[3.4854vw] right-[.5vw] bottom-0 absolute">
-            <div class="w-[62%] h-full flex flex-col items-center justify-start left-[.8vw] top-0 absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.5vw] absolute">{{ $root.Language['number_of_employeer'] }}</span>
-                <div class="w-full bottom-[.8vw] absolute">
-                    <span class="text-cyan-400 text-[.6771vw] font-semibold font-['Poppins'] mr-[.2vw]">{{ $root.EmployeesTable.length }}</span>
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['employee'] }}</span>
+        <div class="w-[24.3%] h-full modern-card neon-glow slide-in-left relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20"></div>
+            <div class="relative z-10 w-full h-full flex items-center justify-between p-[1vw]">
+                <div class="flex flex-col">
+                    <span class="gradient-text text-[.9vw] font-bold font-['Poppins']">{{ $root.Language['number_of_employeer'] }}</span>
+                    <div class="flex items-center mt-[.3vw]">
+                        <span class="text-white text-[1.2vw] font-bold mr-[.3vw]">{{ $root.EmployeesTable.length }}</span>
+                        <span class="text-cyan-300 text-[.7vw] font-medium">{{ $root.Language['employee'] }}</span>
+                    </div>
+                </div>
+                <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
+                    <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
                 </div>
             </div>
         </div>
-        <div class="w-[24.3%] h-full bg-[#000000BF] rounded-[.2604vw] relative" style="background-image: url('./img/bossmenu/dashboard/stats-bg.png'); background-size: cover; background-repeat: no-repeat;">
-            <img src="./img/bossmenu/dashboard/firstcar-img.png" class="w-[10.5729vw] h-[3.4954vw] right-0 bottom-0 absolute">
-            <div class="w-[62%] h-full flex flex-col items-center justify-start left-[.8vw] top-0 absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.5vw] absolute">{{ $root.Language['vehicles_in_stock'] }}</span>
-                <div class="w-full bottom-[.8vw] absolute">
-                    <span class="text-cyan-400 text-[.6771vw] font-semibold font-['Poppins'] mr-[.2vw]">{{ $root.AvailableVehiclesCount }}</span>
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['vehicle'] }}</span>
+        
+        <div class="w-[24.3%] h-full modern-card neon-glow slide-in-left relative overflow-hidden" style="animation-delay: 0.1s">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-600/20"></div>
+            <div class="relative z-10 w-full h-full flex items-center justify-between p-[1vw]">
+                <div class="flex flex-col">
+                    <span class="gradient-text text-[.9vw] font-bold font-['Poppins']">{{ $root.Language['vehicles_in_stock'] }}</span>
+                    <div class="flex items-center mt-[.3vw]">
+                        <span class="text-white text-[1.2vw] font-bold mr-[.3vw]">{{ $root.AvailableVehiclesCount }}</span>
+                        <span class="text-cyan-300 text-[.7vw] font-medium">{{ $root.Language['vehicle'] }}</span>
+                    </div>
+                </div>
+                <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center">
+                    <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                    </svg>
                 </div>
             </div>
         </div>
-        <div class="w-[24.3%] h-full bg-[#000000BF] rounded-[.2604vw] relative" style="background-image: url('./img/bossmenu/dashboard/stats-bg.png'); background-size: cover; background-repeat: no-repeat;">
-            <img src="./img/bossmenu/dashboard/secondcar-img.png" class="w-[10.5729vw] h-[3.4854vw] right-0 bottom-0 absolute">
-            <div class="w-[62%] h-full flex flex-col items-center justify-start left-[.8vw] top-0 absolute">
-                <span class="w-full text-stone-300 text-[.8vw] font-semibold font-['Poppins'] top-[.5vw] absolute">{{ $root.Language['vehicles_sold'] }}</span>
-                <div class="w-full bottom-[.8vw] absolute">
-                    <span class="text-cyan-400 text-[.6771vw] font-semibold font-['Poppins'] mr-[.2vw]">{{ $root.SoldVehiclesLog.length }}</span>
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['vehicle'] }}</span>
+        
+        <div class="w-[24.3%] h-full modern-card neon-glow slide-in-left relative overflow-hidden" style="animation-delay: 0.2s">
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-600/20"></div>
+            <div class="relative z-10 w-full h-full flex items-center justify-between p-[1vw]">
+                <div class="flex flex-col">
+                    <span class="gradient-text text-[.9vw] font-bold font-['Poppins']">{{ $root.Language['vehicles_sold'] }}</span>
+                    <div class="flex items-center mt-[.3vw]">
+                        <span class="text-white text-[1.2vw] font-bold mr-[.3vw]">{{ $root.SoldVehiclesLog.length }}</span>
+                        <span class="text-cyan-300 text-[.7vw] font-medium">{{ $root.Language['vehicle'] }}</span>
+                    </div>
+                </div>
+                <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+                    <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
                 </div>
             </div>
         </div>
-        <div class="w-[24.3%] h-full bg-[#000000BF] rounded-[.2604vw] relative" style="background-image: url('./img/bossmenu/dashboard/stats-bg.png'); background-size: cover; background-repeat: no-repeat;">
-            <img src="./img/bossmenu/dashboard/star.png" class="w-[9.7396vw] h-[3.4854vw] right-[.1vw] bottom-0 absolute">
-            <div class="w-[62%] h-full flex flex-col items-center justify-start left-[.8vw] top-0 absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.5vw] absolute">{{ $root.Language['company_rating'] }}</span>
-                <div class="w-full bottom-[.8vw] absolute">
-                    <span class="text-cyan-400 text-[.6771vw] font-semibold font-['Poppins'] mr-[.2vw]" :class="{ 'text-[#FF0004]': $root.AverageRating < 3 && $root.AverageRating > 0 }">{{ $root.AverageRating }}</span>
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins'] mr-[.2vw]">{{ $root.Language['average'] }}</span>
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']" v-if=" $root.AverageRating > 0">({{ $root.AverageRating < 3 ? $root.Language['bad'] : $root.Language['good'] }})</span>
+        
+        <div class="w-[24.3%] h-full modern-card neon-glow slide-in-left relative overflow-hidden" style="animation-delay: 0.3s">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20"></div>
+            <div class="relative z-10 w-full h-full flex items-center justify-between p-[1vw]">
+                <div class="flex flex-col">
+                    <span class="gradient-text text-[.9vw] font-bold font-['Poppins']">{{ $root.Language['company_rating'] }}</span>
+                    <div class="flex items-center mt-[.3vw]">
+                        <span class="text-white text-[1.2vw] font-bold mr-[.3vw]" :class="{ 'text-red-400': $root.AverageRating < 3 && $root.AverageRating > 0 }">{{ $root.AverageRating }}</span>
+                        <div class="flex">
+                            <svg v-for="i in 5" :key="i" class="w-[.8vw] h-[.8vw]" :class="i <= $root.AverageRating ? 'text-yellow-400' : 'text-gray-400'" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+                    <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="w-full h-[4.3%]"></div>
+    
     <div class="w-full h-[85%] flex items-center justify-between">
-        <div class="w-[49.5%] h-full flex flex-col bg-[#000000BF] rounded-[.2604vw]">
-            <div class="w-full h-[14.4%] bg-[#000000BF] relative">
-                <img src="./img/bossmenu/dashboard/question-mark.png" class="w-[13.3333vw] h-[3.63vw] right-0 bottom-0 absolute">
-                <div class="w-[73%] h-full flex flex-col items-start justify-center left-[1.5%] top-0 absolute">
-                    <span class="w-full text-[#C3C3C3] text-[.8333vw] font-semibold font-['Poppins']">{{ $root.Language['preorder'] }}</span>
-                    <span class="w-full text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['preorder_description'] }}</span>
+        <div class="w-[49.5%] h-full modern-card slide-in-left">
+            <div class="w-full h-[14.4%] glass-effect rounded-t-[1.2vw] relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10"></div>
+                <div class="relative z-10 w-full h-full flex items-center justify-between p-[1.5vw]">
+                    <div class="flex flex-col">
+                        <span class="gradient-text text-[.9vw] font-bold font-['Poppins']">{{ $root.Language['preorder'] }}</span>
+                        <span class="text-cyan-200 text-[.7vw] font-medium">{{ $root.Language['preorder_description'] }}</span>
+                    </div>
+                    <div class="w-[2.5vw] h-[2.5vw] rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
+                        <svg class="w-[1.2vw] h-[1.2vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
+            
             <div class="w-full h-[1.6%]"></div>
-            <div class="w-full h-[84%] flex flex-col">
+            
+            <div class="w-full h-[84%] flex flex-col p-[1vw]">
                 <div class="w-full h-[88%] flex flex-col flex items-center justify-start">
-                    <div v-if="$root.PreordersPage.length > 0" v-for="(v, k) in $root.PreordersPage" class="w-[98.5%] h-[12%] flex flex-wrap items-center bg-[#000000DE] rounded-[.1563vw] mt-[.3vw] mb-[.1vw]">
-                        <div class="w-[21.8%] h-full flex flex-col items-center justify-center">
-                            <span class="w-full text-white text-[.7vw] text-center font-medium font-['Poppins'] mt-[.25vw]">{{ $root.Language['ordered_by'] }}</span>
-                            <span class="w-full text-neutral-400 text-[.5208vw] text-center font-semibold font-['Poppins'] mb-[.25vw]">{{ v.requestor }}</span>
-                        </div>
-                        <div class="w-[.2%] h-[38.5%] bg-[#636363]"></div>
-                        <div class="w-[26.8%] h-full flex flex-col items-center justify-center">
-                            <span class="w-full text-white text-[.7vw] text-center font-medium font-['Poppins'] mt-[.25vw]">{{ $root.Language['ordered_model'] }}</span>
-                            <span class="w-full text-neutral-400 text-[.5208vw] text-center font-semibold font-['Poppins'] mb-[.25vw]">{{ v.vehiclemodel }}</span>
-                        </div>
-                        <div class="w-[.2%] h-[38.5%] bg-[#636363]"></div>
-                        <div class="w-[21.3%] h-full flex flex-col items-center justify-center">
-                            <span class="w-full text-white text-[.7vw] text-center font-medium font-['Poppins'] mt-[.25vw]">{{ $root.Language['price'] }}</span>
-                            <div class="w-full flex items-start justify-center mb-[.25vw]">
-                                <span class="text-cyan-400 text-[.5208vw] text-center font-semibold font-['Poppins']">$</span>
-                                <span class="text-neutral-400 text-[.5208vw] text-center font-semibold font-['Poppins']">{{ $root.FormatMoney(v.price) }}</span>
+                    <div v-if="$root.PreordersPage.length > 0" v-for="(v, k) in $root.PreordersPage" class="w-full h-[12%] modern-card mb-[.5vw] p-[.8vw] hover:scale-[1.02] transition-all duration-300">
+                        <div class="w-full h-full flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-white text-[.7vw] font-semibold">{{ $root.Language['ordered_by'] }}</span>
+                                <span class="text-cyan-300 text-[.6vw] font-medium">{{ v.requestor }}</span>
                             </div>
-                        </div>
-                        <div class="w-[.2%] h-[38.5%] bg-[#636363]"></div>
-                        <div class="w-[29.5%] h-full flex items-center justify-center">
-                            <div class="w-[4.4792vw] h-[1.1458vw] flex items-center justify-center bg-[#5E5E5E] rounded-[.1042vw] cursor-pointer mr-[.125vw]" @click="$root.DeclinePreorder(v.requestor, v.vehiclemodel, v.price)">
-                                <span class="w-full text-white text-[.5208vw] text-center font-semibold font-['Poppins']">{{ $root.Language['decline'] }}</span>
+                            <div class="flex flex-col">
+                                <span class="text-white text-[.7vw] font-semibold">{{ $root.Language['ordered_model'] }}</span>
+                                <span class="text-cyan-300 text-[.6vw] font-medium">{{ v.vehiclemodel }}</span>
                             </div>
-                            <div class="w-[4.4792vw] h-[1.1458vw] flex items-center justify-center bg-[#00F0FF] rounded-[.1042vw] cursor-pointer ml-[.125vw]" @click="$root.AcceptPreorder(v.requestor, v.vehiclemodel, v.price)">
-                                <span class="w-full text-black text-[.5208vw] text-center font-semibold font-['Poppins']">{{ $root.Language['accept'] }}</span>
+                            <div class="flex flex-col">
+                                <span class="text-white text-[.7vw] font-semibold">{{ $root.Language['price'] }}</span>
+                                <span class="gradient-text text-[.6vw] font-bold">${{ $root.FormatMoney(v.price) }}</span>
+                            </div>
+                            <div class="flex space-x-[.3vw]">
+                                <button class="px-[.8vw] py-[.3vw] bg-red-500 hover:bg-red-600 text-white rounded-[.3vw] text-[.5vw] font-semibold transition-all duration-300" @click="$root.DeclinePreorder(v.requestor, v.vehiclemodel, v.price)">
+                                    {{ $root.Language['decline'] }}
+                                </button>
+                                <button class="modern-button px-[.8vw] py-[.3vw] text-[.5vw] font-semibold" @click="$root.AcceptPreorder(v.requestor, v.vehiclemodel, v.price)">
+                                    {{ $root.Language['accept'] }}
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div v-else class="w-[98.5%] h-[14%] flex items-center justify-center mt-[.3vw]">
-                        <span class="w-full text-zinc-600 text-[1vw] text-center font-semibold font-['Poppins']">{{ $root.Language['no_data'] }}</span>
+                    <div v-else class="w-full h-[14%] flex items-center justify-center">
+                        <span class="text-cyan-300 text-[1vw] text-center font-semibold">{{ $root.Language['no_data'] }}</span>
                     </div>
                 </div>
-                <div class="w-full h-[12%] relative">
-                    <div class="w-[13%] h-full flex items-center justify-between right-[.8vw] top-0 absolute" v-if="$root.PreordersPage.length > 0">
-                        <div class="w-[47%] h-[80%] flex items-center justify-center bg-[#000000] cursor-pointer" :class="{ 'cursor-not-allowed': $root.BossmenuPageSettings.PreorderPage == 1 }" @click="$root.PrevPage('preorder')">
-                            <inlinesvg class="h-[.8vw] h-[.8vw] flex items-center justify-center" src="./img/svg/left.svg"></inlinesvg>
-                        </div>
-                        <div class="w-[47%] h-[80%] flex items-center justify-center bg-[#000000] cursor-pointer" :class="{ 'cursor-not-allowed': $root.BossmenuPageSettings.PreorderPage == $root.TotalBossmenuPages('preorder') }" @click="$root.NextPage('preorder')">
-                            <inlinesvg class="h-[.8vw] h-[.8vw] flex items-center justify-center" src="./img/svg/right.svg"></inlinesvg>
-                        </div>
-                    </div>
-                    <div class="w-[79%] h-full flex items-center justify-start left-[.6vw] top-0 absolute" v-if="$root.PreordersPage.length > 0">
-                        <div class="w-full text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['preorder_second_description'] }}</div>
+                
+                <div class="w-full h-[12%] flex items-center justify-between" v-if="$root.PreordersPage.length > 0">
+                    <div class="text-cyan-200 text-[.7vw] font-medium">{{ $root.Language['preorder_second_description'] }}</div>
+                    <div class="flex space-x-[.3vw]">
+                        <button class="w-[2vw] h-[2vw] modern-card flex items-center justify-center" :class="{ 'opacity-50 cursor-not-allowed': $root.BossmenuPageSettings.PreorderPage == 1 }" @click="$root.PrevPage('preorder')">
+                            <svg class="w-[.8vw] h-[.8vw] text-cyan-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <button class="w-[2vw] h-[2vw] modern-card flex items-center justify-center" :class="{ 'opacity-50 cursor-not-allowed': $root.BossmenuPageSettings.PreorderPage == $root.TotalBossmenuPages('preorder') }" @click="$root.NextPage('preorder')">
+                            <svg class="w-[.8vw] h-[.8vw] text-cyan-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="w-[49.5%] h-full flex flex-col bg-[#000000BF] rounded-[.2604vw]">
-            <div class="w-full h-[14.4%] bg-[#000000BF] relative">
-                <img src="./img/bossmenu/dashboard/dollar.png" class="w-[13.3333vw] h-[3.63vw] right-0 bottom-0 absolute">
-                <div class="w-[73%] h-full flex flex-col items-start justify-center left-[1.5%] top-0 absolute">
-                    <span class="w-full text-[#C3C3C3] text-[.8333vw] font-semibold font-['Poppins']">{{ $root.Language['sold_vehicles'] }}</span>
-                    <span class="w-full text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['sold_vehicles_description'] }}</span>
+        
+        <div class="w-[49.5%] h-full modern-card slide-in-right">
+            <div class="w-full h-[14.4%] glass-effect rounded-t-[1.2vw] relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10"></div>
+                <div class="relative z-10 w-full h-full flex items-center justify-between p-[1.5vw]">
+                    <div class="flex flex-col">
+                        <span class="gradient-text text-[.9vw] font-bold font-['Poppins']">{{ $root.Language['sold_vehicles'] }}</span>
+                        <span class="text-cyan-200 text-[.7vw] font-medium">{{ $root.Language['sold_vehicles_description'] }}</span>
+                    </div>
+                    <div class="w-[2.5vw] h-[2.5vw] rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
+                        <svg class="w-[1.2vw] h-[1.2vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
                 </div>
             </div>
+            
             <div class="w-full h-[1.6%]"></div>
-            <div class="w-full h-[84%] flex flex-col">
+            
+            <div class="w-full h-[84%] flex flex-col p-[1vw]">
                 <div class="w-full h-[88%] flex flex-col flex items-center justify-start">
-                    <div v-if="$root.SoldVehiclesPage.length > 0" v-for="(v, k) in $root.SoldVehiclesPage" class="w-[98.5%] h-[12%] flex flex-wrap flex items-center bg-[#000000DE] rounded-[.1563vw] mt-[.3vw] mb-[.1vw]">
-                        <div class="w-[21.8%] h-full flex flex-col items-center justify-center">
-                            <span class="w-full text-white text-[.7vw] text-center font-medium font-['Poppins'] mt-[.25vw]">{{ $root.Language['buyer'] }}</span>
-                            <span class="w-full text-neutral-400 text-[.5208vw] text-center font-semibold font-['Poppins'] mb-[.3vw]">{{ v.buyer }}</span>
-                        </div>
-                        <div class="w-[.2%] h-[38.5%] bg-[#636363]"></div>
-                        <div class="w-[26.8%] h-full flex flex-col items-center justify-center">
-                            <span class="w-full text-white text-[.7vw] text-center font-medium font-['Poppins'] mt-[.25vw]">{{ $root.Language['purchased_model'] }}</span>
-                            <span class="w-full text-neutral-400 text-[.5208vw] text-center font-semibold font-['Poppins'] mb-[.3vw]">{{ v.vehicle }}</span>
-                        </div>
-                        <div class="w-[.2%] h-[38.5%] bg-[#636363]"></div>
-                        <div class="w-[21.3%] h-full flex flex-col items-center justify-center">
-                            <span class="w-full text-white text-[.7vw] text-center font-medium font-['Poppins'] mt-[.25vw]">{{ $root.Language['price'] }}</span>
-                            <div class="w-full flex items-start justify-center mb-[.3vw]">
-                                <span class="text-cyan-400 text-[.5208vw] text-center font-semibold font-['Poppins']">$</span>
-                                <span class="text-neutral-400 text-[.5208vw] text-center font-semibold font-['Poppins']">{{ $root.FormatMoney(v.price) }}</span>
+                    <div v-if="$root.SoldVehiclesPage.length > 0" v-for="(v, k) in $root.SoldVehiclesPage" class="w-full h-[12%] modern-card mb-[.5vw] p-[.8vw] hover:scale-[1.02] transition-all duration-300">
+                        <div class="w-full h-full flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-white text-[.7vw] font-semibold">{{ $root.Language['buyer'] }}</span>
+                                <span class="text-cyan-300 text-[.6vw] font-medium">{{ v.buyer }}</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-white text-[.7vw] font-semibold">{{ $root.Language['purchased_model'] }}</span>
+                                <span class="text-cyan-300 text-[.6vw] font-medium">{{ v.vehicle }}</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-white text-[.7vw] font-semibold">{{ $root.Language['price'] }}</span>
+                                <span class="gradient-text text-[.6vw] font-bold">${{ $root.FormatMoney(v.price) }}</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-white text-[.7vw] font-semibold">{{ $root.Language['date'] }}</span>
+                                <span class="text-cyan-300 text-[.6vw] font-medium">{{ v.date }}</span>
                             </div>
                         </div>
-                        <div class="w-[.2%] h-[38.5%] bg-[#636363]"></div>
-                        <div class="w-[29.5%] h-full flex flex-col items-center justify-center">
-                            <span class="w-full text-white text-[.7vw] text-center font-medium font-['Poppins'] mt-[.25vw]">{{ $root.Language['date'] }}</span>
-                            <div class="w-full text-cyan-400 text-[.5208vw] text-center font-semibold font-['Poppins'] mb-[.3vw]">{{ v.date }}</div>
-                        </div>
                     </div>
-                    <div v-else class="w-[98.5%] h-[14%] flex items-center justify-center mt-[.3vw]">
-                        <span class="w-full text-zinc-600 text-[1vw] text-center font-semibold font-['Poppins']">{{ $root.Language['no_data'] }}</span>
+                    <div v-else class="w-full h-[14%] flex items-center justify-center">
+                        <span class="text-cyan-300 text-[1vw] text-center font-semibold">{{ $root.Language['no_data'] }}</span>
                     </div>
                 </div>
-                <div class="w-full h-[12%] relative">
-                    <div class="w-[13%] h-full flex items-center justify-between right-[.8vw] top-0 absolute" v-if="$root.SoldVehiclesPage.length > 0">
-                        <div class="w-[47%] h-[80%] flex items-center justify-center bg-[#000000] cursor-pointer" :class="{ 'cursor-not-allowed': $root.BossmenuPageSettings.SoldVehiclesPage == 1 }" @click="$root.PrevPage('soldvehicles')">
-                            <inlinesvg class="h-[.8vw] h-[.8vw] flex items-center justify-center" src="./img/svg/left.svg"></inlinesvg>
-                        </div>
-                        <div class="w-[47%] h-[80%] flex items-center justify-center bg-[#000000] cursor-pointer" :class="{ 'cursor-not-allowed': $root.BossmenuPageSettings.SoldVehiclesPage == $root.TotalBossmenuPages('soldvehicles') }" @click="$root.NextPage('soldvehicles')">
-                            <inlinesvg class="h-[.8vw] h-[.8vw] flex items-center justify-center" src="./img/svg/right.svg"></inlinesvg>
+                
+                <div class="w-full h-[12%] flex items-center justify-between">
+                    <div class="w-[65%] h-[75%] glass-effect rounded-[.5vw] flex items-center px-[.5vw]">
+                        <input type="text" class="w-[87%] h-full bg-transparent outline-none text-cyan-200 placeholder-cyan-400" :placeholder="$root.Language['bossmenu_search_input']" v-model="$root.Inputs.SoldVehiclesInput">
+                        <div class="w-[13%] h-full flex items-center justify-center">
+                            <svg class="w-[.9vw] h-[.9vw] text-cyan-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                            </svg>
                         </div>
                     </div>
-                    <div class="w-[79%] h-full flex items-center justify-start left-[.3vw] top-0 absolute">
-                        <div class="w-[65%] h-[75%] bg-[#5555554D] flex flex-wrap rounded-[.2vw] left-0 absolute">
-                            <input type="text" class="w-[87%] h-full px-[.3vw] outline-none bossmenu-classic-search-input" :placeholder="$root.Language['bossmenu_search_input']" v-model="$root.Inputs.SoldVehiclesInput">
-                            <div class="w-[13%] h-full flex items-center justify-center">
-                                <inlinesvg class="w-[.9375vw] h-[.9375vw] flex item-center justify-center" src="./img/bossmenu/search.svg"></inlinesvg>
-                            </div>
-                        </div>
+                    <div class="flex space-x-[.3vw]" v-if="$root.SoldVehiclesPage.length > 0">
+                        <button class="w-[2vw] h-[2vw] modern-card flex items-center justify-center" :class="{ 'opacity-50 cursor-not-allowed': $root.BossmenuPageSettings.SoldVehiclesPage == 1 }" @click="$root.PrevPage('soldvehicles')">
+                            <svg class="w-[.8vw] h-[.8vw] text-cyan-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <button class="w-[2vw] h-[2vw] modern-card flex items-center justify-center" :class="{ 'opacity-50 cursor-not-allowed': $root.BossmenuPageSettings.SoldVehiclesPage == $root.TotalBossmenuPages('soldvehicles') }" @click="$root.NextPage('soldvehicles')">
+                            <svg class="w-[.8vw] h-[.8vw] text-cyan-300" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>

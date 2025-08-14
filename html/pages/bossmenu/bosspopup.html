@@ -1,240 +1,259 @@
-<div class="w-full h-full flex items-center justify-center" style="background: url('./img/popup-background.png'); background-size: cover; background-repeat: no-repeat; backdrop-filter: blur(.151vw);">
-    <div class="w-[35.5729vw] h-[9.5833vw] flex flex-col bg-[#000000BF] rounded-[.2604vw]" v-if="$root.ShowBossPopup == 'deposit'">
-        <div class="w-full h-[3.5417vw] bg-[#000000DE] rounded-t-[.2604vw] relative">
-            <div class="w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['deposit'] }}</span>
+<div class="w-full h-full flex items-center justify-center fade-in" style="background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(6, 182, 212, 0.05)); backdrop-filter: blur(20px);">
+    <!-- Deposit Popup -->
+    <div class="modern-card neon-glow w-[35.5729vw] h-[9.5833vw] flex flex-col" v-if="$root.ShowBossPopup == 'deposit'">
+        <div class="w-full h-[3.5417vw] glass-effect rounded-t-[1.2vw] relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20"></div>
+            <div class="relative z-10 w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
+                <span class="gradient-text text-[.9vw] font-bold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['deposit'] }}</span>
                 <div class="w-full bottom-[.6vw] absolute">
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['deposit_description'] }}</span>
+                    <span class="text-cyan-200 text-[.7vw] font-semibold font-['Poppins']">{{ $root.Language['deposit_description'] }}</span>
                 </div>
             </div>
-            <img src="./img/bossmenu/dashboard/dollar.png" class="w-[13.3333vw] h-[3.63vw] right-0 top-0 absolute">
+            <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center right-[1vw] top-[.3vw] absolute">
+                <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                </svg>
+            </div>
         </div>
-        <div class="w-full h-[61.5%] flex items-center justify-center relative">
-            <div class="w-[98%] h-[86%] flex flex-wrap top-[.3vw] absolute">
+        <div class="w-full h-[61.5%] flex items-center justify-center relative p-[1vw]">
+            <div class="w-full h-full flex">
                 <div class="w-[70.5%] h-full flex flex-col">
-                    <div class="w-full h-[58%] flex items-center justify-center bg-[#00F0FF] mb-[1%]">
-                        <span class="w-full text-black text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['enter_an_amount'] }}</span>
+                    <div class="w-full h-[58%] modern-button flex items-center justify-center mb-[1%] rounded-[.5vw]">
+                        <span class="text-white text-[.8vw] text-center font-bold">{{ $root.Language['enter_an_amount'] }}</span>
                     </div>
-                    <input type="number" class="w-full h-[43.5%] bg-[#000000DE] outline-none depositwithdrawinput placeholder:opacity-[.55]" placeholder="$10.000" v-model="$root.Inputs.DepositInput">
+                    <input type="number" class="w-full h-[43.5%] depositwithdrawinput rounded-[.5vw] px-[1vw]" placeholder="$10.000" v-model="$root.Inputs.DepositInput">
                 </div>
-                <div class="w-[29.5%] h-full flex flex-col items-start">
-                    <div class="w-full h-[55.5%] flex items-center justify-center bg-[#000000DE] cursor-pointer" @click="$root.DepositMoney()">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['deposit'] }}</span>
-                    </div>
-                    <div class="w-full h-[2.5%]"></div>
-                    <div class="w-[99%] h-[42%] flex items-center justify-center bg-[#000000DE] ml-[1%] cursor-pointer" @click="$root.ShowBossPopup = ''; $root.Inputs.DepositInput = '';">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['cancel'] }}</span>
-                    </div>
+                <div class="w-[29.5%] h-full flex flex-col items-start ml-[1%]">
+                    <button class="w-full h-[55.5%] modern-button flex items-center justify-center mb-[2.5%] rounded-[.5vw]" @click="$root.DepositMoney()">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['deposit'] }}</span>
+                    </button>
+                    <button class="w-full h-[42%] glass-effect flex items-center justify-center rounded-[.5vw] hover:bg-red-500/20 transition-all duration-300" @click="$root.ShowBossPopup = ''; $root.Inputs.DepositInput = '';">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['cancel'] }}</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-[35.5729vw] h-[9.5833vw] flex flex-col bg-[#000000BF] rounded-[.2604vw]" v-if="$root.ShowBossPopup == 'withdraw'">
-        <div class="w-full h-[3.5417vw] bg-[#000000DE] rounded-t-[.2604vw] relative">
-            <div class="w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['withdraw'] }}</span>
+
+    <!-- Withdraw Popup -->
+    <div class="modern-card neon-glow w-[35.5729vw] h-[9.5833vw] flex flex-col" v-if="$root.ShowBossPopup == 'withdraw'">
+        <div class="w-full h-[3.5417vw] glass-effect rounded-t-[1.2vw] relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-red-500/20 to-pink-500/20"></div>
+            <div class="relative z-10 w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
+                <span class="gradient-text text-[.9vw] font-bold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['withdraw'] }}</span>
                 <div class="w-full bottom-[.6vw] absolute">
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['withdraw_description'] }}</span>
+                    <span class="text-cyan-200 text-[.7vw] font-semibold font-['Poppins']">{{ $root.Language['withdraw_description'] }}</span>
                 </div>
             </div>
-            <img src="./img/bossmenu/dashboard/dollar.png" class="w-[13.3333vw] h-[3.63vw] right-0 top-0 absolute">
+            <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-red-400 to-pink-500 flex items-center justify-center right-[1vw] top-[.3vw] absolute">
+                <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z"/>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"/>
+                </svg>
+            </div>
         </div>
-        <div class="w-full h-[61.5%] flex items-center justify-center relative">
-            <div class="w-[98%] h-[86%] flex flex-wrap top-[.3vw] absolute">
+        <div class="w-full h-[61.5%] flex items-center justify-center relative p-[1vw]">
+            <div class="w-full h-full flex">
                 <div class="w-[70.5%] h-full flex flex-col">
-                    <div class="w-full h-[58%] flex items-center justify-center bg-[#00F0FF] mb-[1%]">
-                        <span class="w-full text-black text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['enter_an_amount'] }}</span>
+                    <div class="w-full h-[58%] modern-button flex items-center justify-center mb-[1%] rounded-[.5vw]">
+                        <span class="text-white text-[.8vw] text-center font-bold">{{ $root.Language['enter_an_amount'] }}</span>
                     </div>
-                    <input type="number" class="w-full h-[43.5%] bg-[#000000DE] outline-none depositwithdrawinput placeholder:opacity-[.55]" placeholder="$10.000" v-model="$root.Inputs.WithdrawInput">
+                    <input type="number" class="w-full h-[43.5%] depositwithdrawinput rounded-[.5vw] px-[1vw]" placeholder="$10.000" v-model="$root.Inputs.WithdrawInput">
                 </div>
-                <div class="w-[29.5%] h-full flex flex-col items-start">
-                    <div class="w-full h-[55.5%] flex items-center justify-center bg-[#000000DE] cursor-pointer" @click="$root.WithdrawMoney()">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['withdraw'] }}</span>
-                    </div>
-                    <div class="w-full h-[2.5%]"></div>
-                    <div class="w-[99%] h-[42%] flex items-center justify-center bg-[#000000DE] ml-[1%] cursor-pointer" @click="$root.ShowBossPopup = ''; $root.Inputs.WithdrawInput = '';">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['cancel'] }}</span>
-                    </div>
+                <div class="w-[29.5%] h-full flex flex-col items-start ml-[1%]">
+                    <button class="w-full h-[55.5%] modern-button flex items-center justify-center mb-[2.5%] rounded-[.5vw]" @click="$root.WithdrawMoney()">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['withdraw'] }}</span>
+                    </button>
+                    <button class="w-full h-[42%] glass-effect flex items-center justify-center rounded-[.5vw] hover:bg-red-500/20 transition-all duration-300" @click="$root.ShowBossPopup = ''; $root.Inputs.WithdrawInput = '';">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['cancel'] }}</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-[35.5729vw] h-[9.5833vw] flex flex-col bg-[#000000BF] rounded-[.2604vw]" v-if="$root.ShowBossPopup == 'createperm'">
-        <div class="w-full h-[3.5417vw] bg-[#000000DE] rounded-t-[.2604vw] relative">
-            <div class="w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['create_perm'] }}</span>
+
+    <!-- Create Permission Popup -->
+    <div class="modern-card neon-glow w-[35.5729vw] h-[9.5833vw] flex flex-col" v-if="$root.ShowBossPopup == 'createperm'">
+        <div class="w-full h-[3.5417vw] glass-effect rounded-t-[1.2vw] relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20"></div>
+            <div class="relative z-10 w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
+                <span class="gradient-text text-[.9vw] font-bold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['create_perm'] }}</span>
                 <div class="w-full bottom-[.6vw] absolute">
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['create_perm_description'] }}</span>
+                    <span class="text-cyan-200 text-[.7vw] font-semibold font-['Poppins']">{{ $root.Language['create_perm_description'] }}</span>
                 </div>
             </div>
-            <img src="./img/bossmenu/employee-bg.png" class="w-[13.3333vw] h-[3.63vw] right-0 top-0 absolute">
+            <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center right-[1vw] top-[.3vw] absolute">
+                <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+            </div>
         </div>
-        <div class="w-full h-[61.5%] flex items-center justify-center relative">
-            <div class="w-[98%] h-[86%] flex flex-wrap top-[.3vw] absolute">
+        <div class="w-full h-[61.5%] flex items-center justify-center relative p-[1vw]">
+            <div class="w-full h-full flex">
                 <div class="w-[70.5%] h-full flex flex-col">
-                    <div class="w-full h-[58%] mb-[1%]">
-                        <input type="text" class="w-full h-full bg-[#00F0FF] px-[1w] outline-none placeholder:opacity-[.85] company-input" :placeholder="$root.Language['enter_perm_name']" v-model="$root.Inputs.PermNameInput">
-                    </div>
-                    <input type="text" class="w-full h-[43.5%] bg-[#000000DE] outline-none depositwithdrawinput placeholder:opacity-[.55]" :placeholder="$root.Language['enter_perm_label']" v-model="$root.Inputs.PermLabelInput">
+                    <input type="text" class="w-full h-[58%] company-input rounded-[.5vw] px-[1vw] mb-[1%]" :placeholder="$root.Language['enter_perm_name']" v-model="$root.Inputs.PermNameInput">
+                    <input type="text" class="w-full h-[43.5%] company-second-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['enter_perm_label']" v-model="$root.Inputs.PermLabelInput">
                 </div>
-                <div class="w-[29.5%] h-full flex flex-col items-start">
-                    <div class="w-full h-[55.5%] flex items-center justify-center bg-[#000000DE] cursor-pointer" @click="$root.CreatePerm()">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['create'] }}</span>
-                    </div>
-                    <div class="w-full h-[2.5%]"></div>
-                    <div class="w-[99%] h-[42%] flex items-center justify-center bg-[#000000DE] ml-[1%] cursor-pointer" @click="$root.CloseBossPopup('createperm')">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['cancel'] }}</span>
-                    </div>
+                <div class="w-[29.5%] h-full flex flex-col items-start ml-[1%]">
+                    <button class="w-full h-[55.5%] modern-button flex items-center justify-center mb-[2.5%] rounded-[.5vw]" @click="$root.CreatePerm()">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['create'] }}</span>
+                    </button>
+                    <button class="w-full h-[42%] glass-effect flex items-center justify-center rounded-[.5vw] hover:bg-red-500/20 transition-all duration-300" @click="$root.CloseBossPopup('createperm')">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['cancel'] }}</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-[35.5729vw] h-[23.75vw] flex flex-col bg-[#000000BF] rounded-[.2604vw] " v-if="$root.ShowBossPopup == 'vehicleedit' && $root.VehicleEditScreen >= 0">
-        <div class="w-full h-[3.5417vw] bg-[#000000DE] rounded-[.2604vw] relative">
-            <div class="w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['edit_vehicle'] }}</span>
+
+    <!-- Vehicle Edit Popup -->
+    <div class="modern-card neon-glow w-[35.5729vw] h-[23.75vw] flex flex-col" v-if="$root.ShowBossPopup == 'vehicleedit' && $root.VehicleEditScreen >= 0">
+        <div class="w-full h-[3.5417vw] glass-effect rounded-t-[1.2vw] relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20"></div>
+            <div class="relative z-10 w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
+                <span class="gradient-text text-[.9vw] font-bold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['edit_vehicle'] }}</span>
                 <div class="w-full bottom-[.6vw] absolute">
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['edit_vehicle_description'] }}</span>
+                    <span class="text-cyan-200 text-[.7vw] font-semibold font-['Poppins']">{{ $root.Language['edit_vehicle_description'] }}</span>
                 </div>
             </div>
-            <img src="./img/bossmenu/dashboard/dollar.png" class="w-[11.8755vw] h-full right-0 top-0 absolute">
+            <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center right-[1vw] top-[.3vw] absolute">
+                <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                </svg>
+            </div>
         </div>
         <div class="w-full h-[.4vw]"></div>
-        <input type="text" class="w-full h-[2.7083vw] bg-cyan-400 outline-none vehicles-screen-input" :placeholder="$root.Language['enter_vehicle_name']" v-model="$root.EditVehicleInputs.Name">
-        <div class="w-full h-[.4vw]"></div>
-        <input type="text" class="w-full h-[1.8229vw] bg-[#000000DE] outline-none vehicles-screen-second-input" :placeholder="$root.Language['enter_vehicle_model']" v-model="$root.EditVehicleInputs.Model">
-        <div class="w-full h-[.4vw]"></div>
-        <input type="text" class="w-full h-[2.7083vw] bg-cyan-400 outline-none vehicles-screen-input" :placeholder="$root.Language['enter_vehicle_img']" v-model="$root.EditVehicleInputs.Img">
-        <div class="w-full h-[.4vw]"></div>
-        <input type="text" class="w-full h-[1.8229vw] bg-[#000000DE] outline-none vehicles-screen-second-input" :placeholder="$root.Language['enter_vehicle_discount']" v-model="$root.EditVehicleInputs.Discount">
-        <div class="w-full h-[.4vw]"></div>
-        <input type="text" class="w-full h-[2.7083vw] bg-cyan-400 outline-none vehicles-screen-input" :placeholder="$root.Language['enter_vehicle_price']" v-model="$root.EditVehicleInputs.Price">
-        <div class="w-full h-[.4vw]"></div>
-        <div class="w-full h-[1.8229vw] flex items-center justify-center bg-[#000000DE] select-wrapper relative">
-            <div class="w-full h-full flex items-center justify-center absolute">
-                <select v-model="$root.SelectedVehicleEditCategory" class="top-0 absolute cursor-pointer">
-                    <option class="w-full" v-for="(v, k) in $root.NewCategoryList" :value="k">{{ v.label }}</option>
+        <div class="flex flex-col space-y-[.4vw] px-[1vw]">
+            <input type="text" class="w-full h-[2.7083vw] vehicles-screen-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['enter_vehicle_name']" v-model="$root.EditVehicleInputs.Name">
+            <input type="text" class="w-full h-[1.8229vw] vehicles-screen-second-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['enter_vehicle_model']" v-model="$root.EditVehicleInputs.Model">
+            <input type="text" class="w-full h-[2.7083vw] vehicles-screen-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['enter_vehicle_img']" v-model="$root.EditVehicleInputs.Img">
+            <input type="text" class="w-full h-[1.8229vw] vehicles-screen-second-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['enter_vehicle_discount']" v-model="$root.EditVehicleInputs.Discount">
+            <input type="text" class="w-full h-[2.7083vw] vehicles-screen-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['enter_vehicle_price']" v-model="$root.EditVehicleInputs.Price">
+            <div class="w-full h-[1.8229vw] glass-effect rounded-[.5vw] flex items-center justify-center relative">
+                <select v-model="$root.SelectedVehicleEditCategory" class="w-full h-full bg-transparent text-cyan-200 rounded-[.5vw] px-[1vw]">
+                    <option v-for="(v, k) in $root.NewCategoryList" :value="k" class="bg-gray-800 text-white">{{ v.label }}</option>
                 </select>
-            </div>
-            <span v-if="$root.SelectedVehicleEditCategory >= 0" class="text-neutral-400 text-[.7813vw] text-center font-semibold font-['Poppins'] absolute">{{ $root.NewCategoryList[$root.SelectedVehicleEditCategory].label }}</span>
-            <div v-else class="w-[30%] flex items-center justify-center absolute">
-                <div class="w-full flex items-center justify-center">
-                    <img src="./img/bossmenu/select-icon.png" class="w-[.7813vw] h-[.7813vw]">
-                    <span class="text-neutral-400 text-[.7813vw] text-center font-semibold font-['Poppins'] ml-[.5vw]">{{ $root.Language['select_category'] }}</span>
-                </div>
+                <span v-if="$root.SelectedVehicleEditCategory < 0" class="absolute text-cyan-400 text-[.7vw] pointer-events-none">{{ $root.Language['select_category'] }}</span>
             </div>
         </div>
         <div class="w-full h-[.8vw]"></div>
-        <div class="w-full h-[2.7083vw] flex items-center justify-center">
-            <div class="w-[10.3125vw] h-full flex items-center justify-center bg-[#000000DE] cursor-pointer" @click="$root.CloseEditVehicleScreen()">
-                <div class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['cancel'] }}</div>
-            </div>
-            <div class="w-[10.3125vw] h-full flex items-center justify-center bg-[#00F0FF] cursor-pointer" @click="$root.SaveEditVehicleSection()">
-                <span class="w-full text-black text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['save'] }}</span>
-            </div>
+        <div class="w-full flex justify-center space-x-[.5vw] px-[1vw]">
+            <button class="w-[10.3125vw] h-[2.7083vw] glass-effect flex items-center justify-center rounded-[.5vw] hover:bg-red-500/20 transition-all duration-300" @click="$root.CloseEditVehicleScreen()">
+                <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['cancel'] }}</span>
+            </button>
+            <button class="w-[10.3125vw] h-[2.7083vw] modern-button flex items-center justify-center rounded-[.5vw]" @click="$root.SaveEditVehicleSection()">
+                <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['save'] }}</span>
+            </button>
         </div>
         <div class="w-full h-[.8vw]"></div>
     </div>
-    <div class="w-[35.5729vw] h-[9.5833vw] flex flex-col bg-[#000000BF] rounded-[.2604vw]" v-if="$root.ShowBossPopup == 'createcategory'">
-        <div class="w-full h-[3.5417vw] bg-[#000000DE] rounded-t-[.2604vw] relative">
-            <div class="w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['create_category'] }}</span>
+
+    <!-- Create Category Popup -->
+    <div class="modern-card neon-glow w-[35.5729vw] h-[9.5833vw] flex flex-col" v-if="$root.ShowBossPopup == 'createcategory'">
+        <div class="w-full h-[3.5417vw] glass-effect rounded-t-[1.2vw] relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20"></div>
+            <div class="relative z-10 w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
+                <span class="gradient-text text-[.9vw] font-bold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['create_category'] }}</span>
                 <div class="w-full bottom-[.6vw] absolute">
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['create_category_description'] }}</span>
+                    <span class="text-cyan-200 text-[.7vw] font-semibold font-['Poppins']">{{ $root.Language['create_category_description'] }}</span>
                 </div>
             </div>
-            <img src="./img/bossmenu/employee-bg.png" class="w-[13.3333vw] h-[3.63vw] right-0 top-0 absolute">
+            <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center right-[1vw] top-[.3vw] absolute">
+                <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" clip-rule="evenodd"/>
+                </svg>
+            </div>
         </div>
-        <div class="w-full h-[61.5%] flex items-center justify-center relative">
-            <div class="w-[98%] h-[86%] flex flex-wrap top-[.3vw] absolute">
+        <div class="w-full h-[61.5%] flex items-center justify-center relative p-[1vw]">
+            <div class="w-full h-full flex">
                 <div class="w-[70.5%] h-full flex flex-col">
-                    <div class="w-full h-[58%] mb-[1%]">
-                        <input type="text" class="w-full h-full bg-[#00F0FF] px-[1w] outline-none placeholder:opacity-[.85] company-input" :placeholder="$root.Language['category_name']" v-model="$root.Inputs.CategoryNameInput">
-                    </div>
-                    <input type="text" class="w-full h-[43.5%] bg-[#000000DE] outline-none depositwithdrawinput placeholder:opacity-[.55]" :placeholder="$root.Language['category_label']" v-model="$root.Inputs.CategoryLabelInput">
+                    <input type="text" class="w-full h-[58%] company-input rounded-[.5vw] px-[1vw] mb-[1%]" :placeholder="$root.Language['category_name']" v-model="$root.Inputs.CategoryNameInput">
+                    <input type="text" class="w-full h-[43.5%] company-second-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['category_label']" v-model="$root.Inputs.CategoryLabelInput">
                 </div>
-                <div class="w-[29.5%] h-full flex flex-col items-start">
-                    <div class="w-full h-[55.5%] flex items-center justify-center bg-[#000000DE] cursor-pointer" @click="$root.CreateCategory()">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['create'] }}</span>
-                    </div>
-                    <div class="w-full h-[2.5%]"></div>
-                    <div class="w-[99%] h-[42%] flex items-center justify-center bg-[#000000DE] ml-[1%] cursor-pointer" @click="$root.CloseBossPopup('createcategory')">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['cancel'] }}</span>
-                    </div>
+                <div class="w-[29.5%] h-full flex flex-col items-start ml-[1%]">
+                    <button class="w-full h-[55.5%] modern-button flex items-center justify-center mb-[2.5%] rounded-[.5vw]" @click="$root.CreateCategory()">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['create'] }}</span>
+                    </button>
+                    <button class="w-full h-[42%] glass-effect flex items-center justify-center rounded-[.5vw] hover:bg-red-500/20 transition-all duration-300" @click="$root.CloseBossPopup('createcategory')">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['cancel'] }}</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-[35.5729vw] h-[9.5833vw] flex flex-col bg-[#000000BF] rounded-[.2604vw]" v-if="$root.ShowBossPopup == 'editcategory'">
-        <div class="w-full h-[3.5417vw] bg-[#000000DE] rounded-t-[.2604vw] relative">
-            <div class="w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['edit_category'] }}</span>
+
+    <!-- Edit Category Popup -->
+    <div class="modern-card neon-glow w-[35.5729vw] h-[9.5833vw] flex flex-col" v-if="$root.ShowBossPopup == 'editcategory'">
+        <div class="w-full h-[3.5417vw] glass-effect rounded-t-[1.2vw] relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20"></div>
+            <div class="relative z-10 w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
+                <span class="gradient-text text-[.9vw] font-bold font-['Poppins'] top-[.775vw] absolute">{{ $root.Language['edit_category'] }}</span>
                 <div class="w-full bottom-[.6vw] absolute">
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['edit_category_description'] }}</span>
+                    <span class="text-cyan-200 text-[.7vw] font-semibold font-['Poppins']">{{ $root.Language['edit_category_description'] }}</span>
                 </div>
             </div>
-            <img src="./img/bossmenu/employee-bg.png" class="w-[13.3333vw] h-[3.63vw] right-0 top-0 absolute">
+            <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center right-[1vw] top-[.3vw] absolute">
+                <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
+                </svg>
+            </div>
         </div>
-        <div class="w-full h-[61.5%] flex items-center justify-center relative">
-            <div class="w-[98%] h-[86%] flex flex-wrap top-[.3vw] absolute">
+        <div class="w-full h-[61.5%] flex items-center justify-center relative p-[1vw]">
+            <div class="w-full h-full flex">
                 <div class="w-[70.5%] h-full flex items-center justify-center">
-                    <div class="w-full h-[58%] mb-[1%]">
-                        <input type="text" class="w-full h-full bg-[#00F0FF] px-[1w] outline-none placeholder:opacity-[.85] company-input" :placeholder="$root.Language['category_label']" v-model="$root.Inputs.CategoryLabelInput">
-                    </div>
+                    <input type="text" class="w-full h-[58%] company-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['category_label']" v-model="$root.Inputs.CategoryLabelInput">
                 </div>
-                <div class="w-[29.5%] h-full flex flex-col items-start">
-                    <div class="w-full h-[49%] flex items-center justify-center bg-[#000000DE] cursor-pointer" @click="$root.EditCategory($root.Inputs.CategoryLabelInput)">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['save'] }}</span>
-                    </div>
-                    <div class="w-full h-[2%]"></div>
-                    <div class="w-[99%] h-[49%] flex items-center justify-center bg-[#000000DE] ml-[1%] cursor-pointer" @click="$root.CloseBossPopup('editcategory')">
-                        <span class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['cancel'] }}</span>
-                    </div>
+                <div class="w-[29.5%] h-full flex flex-col items-start ml-[1%]">
+                    <button class="w-full h-[49%] modern-button flex items-center justify-center mb-[2%] rounded-[.5vw]" @click="$root.EditCategory($root.Inputs.CategoryLabelInput)">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['save'] }}</span>
+                    </button>
+                    <button class="w-full h-[49%] glass-effect flex items-center justify-center rounded-[.5vw] hover:bg-red-500/20 transition-all duration-300" @click="$root.CloseBossPopup('editcategory')">
+                        <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['cancel'] }}</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="w-[35.5729vw] h-[16.75vw] flex flex-col bg-[#000000BF] rounded-[.2604vw] " v-if="$root.ShowBossPopup == 'buyvehicle'">
-        <div class="w-full h-[3.5417vw] bg-[#000000DE] rounded-[.2604vw] relative">
-            <div class="w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
-                <span class="w-full text-stone-300 text-[.8333vw] font-semibold font-['Poppins'] top-[.6vw] absolute">{{ $root.Language['buy_vehicle'] }}</span>
+
+    <!-- Buy Vehicle Popup -->
+    <div class="modern-card neon-glow w-[35.5729vw] h-[16.75vw] flex flex-col" v-if="$root.ShowBossPopup == 'buyvehicle'">
+        <div class="w-full h-[3.5417vw] glass-effect rounded-t-[1.2vw] relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20"></div>
+            <div class="relative z-10 w-[70%] h-full flex flex-col items-start justify-center left-[.5vw] absolute">
+                <span class="gradient-text text-[.9vw] font-bold font-['Poppins'] top-[.6vw] absolute">{{ $root.Language['buy_vehicle'] }}</span>
                 <div class="w-full bottom-[.4vw] absolute">
-                    <span class="text-zinc-600 text-[.6771vw] font-semibold font-['Poppins']">{{ $root.Language['buy_vehicle_description'] }}</span>
+                    <span class="text-cyan-200 text-[.7vw] font-semibold font-['Poppins']">{{ $root.Language['buy_vehicle_description'] }}</span>
                 </div>
             </div>
-            <img src="./img/bossmenu/car-bg.png" class="w-[14.5vw] h-full right-0 bottom-0 absolute">
-        </div>
-        <div class="w-full h-[.4vw]"></div>
-        <div class="w-full h-[2.7083vw] flex items-center justify-center bg-cyan-400">
-            <span class="w-full text-[#FF0000] text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['total_price'] + ': $' + $root.FormatMoney($root.AllVehicleData[$root.SelectedBuyVehicle].price * $root.BuyVehicleInputs.Stock) }}</span>
-        </div>
-        <div class="w-full h-[.4vw]"></div>
-        <input type="text" class="w-full h-[1.8229vw] bg-[#000000DE] outline-none vehicles-screen-second-input" :placeholder="$root.Language['enter_stock']" v-model="$root.BuyVehicleInputs.Stock">
-        <div class="w-full h-[.4vw]"></div>
-        <input type="text" class="w-full h-[2.7083vw] bg-cyan-400 outline-none vehicles-screen-input" :placeholder="$root.Language['enter_a_price']" v-model="$root.BuyVehicleInputs.Price">
-        <div class="w-full h-[.4vw]"></div>
-        <div class="w-full h-[2vw] flex items-center justify-center bg-[#000000DE] select-wrapper relative">
-            <div v-if="$root.BuyVehicleInputs.SelectedCategoryIndex < 0" class="w-full flex items-center justify-center relative">
-                <div class="w-full flex items-center justify-center">
-                    <img src="./img/bossmenu/select-icon.png" class="w-[.7813vw] h-[.7813vw]">
-                    <span class="text-neutral-400 text-[.7813vw] text-center font-semibold font-['Poppins'] ml-[.5vw]">{{ $root.Language['select_category'] }}</span>
-                </div>
+            <div class="w-[3vw] h-[3vw] rounded-full bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center right-[1vw] top-[.3vw] absolute">
+                <svg class="w-[1.5vw] h-[1.5vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                </svg>
             </div>
-            <div class="w-full h-full flex items-center justify-center absolute">
-                <select v-model="$root.BuyVehicleInputs.SelectedCategoryIndex" class="top-0 absolute cursor-pointer">
-                    <option class="h-full" v-for="(v, k) in $root.NewCategoryList" :value="k">{{ v.label }}</option>
+        </div>
+        <div class="w-full h-[.4vw]"></div>
+        <div class="flex flex-col space-y-[.4vw] px-[1vw]">
+            <div class="w-full h-[2.7083vw] modern-button flex items-center justify-center rounded-[.5vw]">
+                <span class="text-white text-[.8vw] text-center font-bold">{{ $root.Language['total_price'] + ': $' + $root.FormatMoney($root.AllVehicleData[$root.SelectedBuyVehicle].price * $root.BuyVehicleInputs.Stock) }}</span>
+            </div>
+            <input type="text" class="w-full h-[1.8229vw] vehicles-screen-second-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['enter_stock']" v-model="$root.BuyVehicleInputs.Stock">
+            <input type="text" class="w-full h-[2.7083vw] vehicles-screen-input rounded-[.5vw] px-[1vw]" :placeholder="$root.Language['enter_a_price']" v-model="$root.BuyVehicleInputs.Price">
+            <div class="w-full h-[2vw] glass-effect rounded-[.5vw] flex items-center justify-center relative">
+                <select v-model="$root.BuyVehicleInputs.SelectedCategoryIndex" class="w-full h-full bg-transparent text-cyan-200 rounded-[.5vw] px-[1vw]">
+                    <option v-for="(v, k) in $root.NewCategoryList" :value="k" class="bg-gray-800 text-white">{{ v.label }}</option>
                 </select>
+                <span v-if="$root.BuyVehicleInputs.SelectedCategoryIndex < 0" class="absolute text-cyan-400 text-[.7vw] pointer-events-none">{{ $root.Language['select_category'] }}</span>
             </div>
-            <span v-if="$root.BuyVehicleInputs.SelectedCategoryIndex >= 0" class="text-neutral-400 text-[.7813vw] text-center font-semibold font-['Poppins'] absolute">{{ $root.NewCategoryList[$root.BuyVehicleInputs.SelectedCategoryIndex].label }}</span>
         </div>
         <div class="w-full h-[.4vw]"></div>
-        <div class="w-full h-[2.7083vw] flex items-center justify-center">
-            <div class="w-[10.3125vw] h-full flex items-center justify-center bg-[#000000DE] cursor-pointer" @click="$root.CloseBuyVehicleSection()">
-                <div class="w-full text-white text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['cancel'] }}</div>
-            </div>
-            <div class="w-[10.3125vw] h-full flex items-center justify-center bg-[#00F0FF] cursor-pointer" @click="$root.BuyVehicleSection()">
-                <span class="w-full text-black text-[.7813vw] text-center font-semibold font-['Poppins']">{{ $root.Language['buy'] }}</span>
-            </div>
+        <div class="w-full flex justify-center space-x-[.5vw] px-[1vw]">
+            <button class="w-[10.3125vw] h-[2.7083vw] glass-effect flex items-center justify-center rounded-[.5vw] hover:bg-red-500/20 transition-all duration-300" @click="$root.CloseBuyVehicleSection()">
+                <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['cancel'] }}</span>
+            </button>
+            <button class="w-[10.3125vw] h-[2.7083vw] modern-button flex items-center justify-center rounded-[.5vw]" @click="$root.BuyVehicleSection()">
+                <span class="text-white text-[.8vw] text-center font-semibold">{{ $root.Language['buy'] }}</span>
+            </button>
         </div>
         <div class="w-full h-[.8vw]"></div>
     </div>

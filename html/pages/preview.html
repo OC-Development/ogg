@@ -1,170 +1,190 @@
-<div class="w-full h-full flex flex-col left-0 top-0 absolute" style="background: url('./img/preview-screen-effect.png'); background-size: cover; background-repeat: no-repeat;" :class="{ 'cursor-grabbing': $root.DraggingCheck }" @mousemove="$root.RotateCamera" @mousedown="$root.LeftClickCheck" @mouseup="$root.LeaveLeftClick" @wheel="$root.HandleZoomScroll">
-    <div class="w-full h-[8.5%] flex items-center justify-center left-0 top-0 absolute"> <!-- Header -->
+<div class="w-full h-full flex flex-col left-0 top-0 absolute fade-in" style="background: linear-gradient(135deg, rgba(8, 145, 178, 0.1), rgba(6, 182, 212, 0.05)); backdrop-filter: blur(20px);" :class="{ 'cursor-grabbing': $root.DraggingCheck }" @mousemove="$root.RotateCamera" @mousedown="$root.LeftClickCheck" @mouseup="$root.LeaveLeftClick" @wheel="$root.HandleZoomScroll">
+    <!-- Header -->
+    <div class="w-full h-[8.5%] flex items-center justify-center left-0 top-0 absolute">
         <div class="w-[97%] h-full flex justify-between">
             <div class="w-[50%] h-full flex items-center justify-end">
                 <div class="w-full h-[49%] flex items-center">
-                    <span class="w-full text-white text-[2.0833vw] font-normal font-['regular'] italic">{{ $root.SelectedVehicleTable.VehicleLabel }} <span class="text-cyan-300 text-[1.4063vw] font-semibold font-['medium'] not-italic">{{ $root.SelectedVehicleTable.VehicleModel }}</span></span>
+                    <span class="gradient-text text-[2.0833vw] font-bold font-['Poppins'] italic">{{ $root.SelectedVehicleTable.VehicleLabel }}</span>
+                    <span class="text-cyan-300 text-[1.4063vw] font-semibold font-['medium'] not-italic ml-[.5vw]">{{ $root.SelectedVehicleTable.VehicleModel }}</span>
                 </div>
             </div>
             <div class="w-[20%] h-full flex items-end">
                 <div class="w-full h-[68%] flex justify-end">
                     <div class="w-[80%] h-full flex flex-col items-end justify-center">
-                        <span class="w-full text-white text-[.8333vw] text-end font-semibold font-['medium']">{{ $root.PlayerName }}</span>
-                        <span class="w-full text-white text-[.8333vw] text-end font-semibold font-['regular']"><span class="text-[#00F0FF] text-[.8333vw] font-semibold font-['regular'] mr-[.2vw]" style="filter: drop-shadow(0px 0px 8.3px rgba(0, 240, 255, 0.66));">$</span>{{ $root.FormatMoney($root.PlayerMoney) }}</span>
+                        <span class="gradient-text text-[.9vw] text-end font-bold">{{ $root.PlayerName }}</span>
+                        <div class="flex items-center">
+                            <span class="gradient-text text-[.9vw] font-bold mr-[.2vw]" style="filter: drop-shadow(0px 0px 8.3px rgba(8, 145, 178, 0.66));">$</span>
+                            <span class="text-white text-[.9vw] font-semibold">{{ $root.FormatMoney($root.PlayerMoney) }}</span>
+                        </div>
                     </div>
                     <div class="w-[3.5%] h-full"></div>
                     <div class="w-[16.5%] h-full flex items-center justify-center">
-                        <div class="w-[97%] h-[95%] flex items-center justify-center border-[.1vw] border-[#00F0FF] justify-center rounded-[50%]">
-                            <img :src="$root.PlayerPfp" class="w-full h-full rounded-[50%]">
+                        <div class="w-[97%] h-[95%] modern-card neon-glow rounded-full overflow-hidden">
+                            <img :src="$root.PlayerPfp" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="w-full h-[11.2%]"></div>
+    
+    <!-- Vehicle Stats Panel -->
     <div class="w-full h-[35%] flex flex flex-wrap" :class="{ 'cursor-grabbing': $root.DraggingCheck }" @mousemove="$root.RotateCamera" @mousedown="$root.LeftClickCheck" @mouseup="$root.LeaveLeftClick" @wheel="$root.HandleZoomScroll">
         <div class="w-[79%] h-full"></div>
-        <div class="w-[18.8%] h-full flex flex-col">
-            <div class="w-full h-[5%] flex flex-wrap">
+        <div class="w-[18.8%] h-full flex flex-col slide-in-right">
+            <div class="w-full h-[5%] flex items-center mb-[2%]">
                 <div class="w-[4.5%] h-full flex items-center justify-center">
-                    <inlinesvg src="./img/svg/settings.svg"></inlinesvg>
+                    <svg class="w-[1.2vw] h-[1.2vw] text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/>
+                    </svg>
                 </div>
-                <div class="w-[1.4%] h-full"></div>
-                <div class="w-[7%] h-full flex items-center justify-start">
-                    <span class="w-full text-white text-[.7333vw] font-medium font-['medium']">{{ $root.Language['kits'] }}</span>
+                <div class="w-[7%] h-full flex items-center justify-start ml-[1.4%]">
+                    <span class="gradient-text text-[.8vw] font-bold">{{ $root.Language['kits'] }}</span>
                 </div>
-                <div class="w-[1.6%] h-full"></div>
-                <div class="w-[85.5%] h-full flex items-center justify-center">
-                    <div class="w-full h-[15%] bg-white"></div>
+                <div class="w-[85.5%] h-full flex items-center justify-center ml-[1.6%]">
+                    <div class="w-full h-[15%] bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
                 </div>
             </div>
-            <div class="w-full h-[2%]"></div>
-            <div class="w-full h-[93%] flex flex-col">
-                <div class="w-full h-[17%] relative" style="background: linear-gradient(0deg, #0000004d 0%, #0000004d 100%), #00F0FF4D;">
-                    <div class="w-full h-full left-0 top-0 absolute">
-                        <div class="h-full left-0 top-0 absolute" :style="{ width: $root.CalculateVehicleStatistic('speed') + '%' }">
-                            <inlinesvg class="w-full h-full" :value="$root.CalculateVehicleStatistic('speed')"></inlinesvg>
-                            <span class="text-black text-[.8333vw] font-medium font-['Oswald'] translate-y-[-50%] right-0 top-[50%] p-[2vw] absolute">{{ $root.SelectedVehicleTable.VehicleTopSpeed + ' km/h' }}</span>
+            
+            <div class="w-full h-[93%] flex flex-col space-y-[2.5%]">
+                <!-- Top Speed -->
+                <div class="w-full h-[17%] modern-card relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20"></div>
+                    <div class="relative z-10 w-full h-full">
+                        <div class="h-full left-0 top-0 absolute progress-fill rounded-[1.2vw]" :style="{ width: $root.CalculateVehicleStatistic('speed') + '%' }">
+                            <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-[1.2vw]"></div>
                         </div>
-                        <div class="w-full h-full flex flex-wrap left-0 top-0 absolute">
-                            <div class="w-[4.5%] h-full"></div>
-                            <div class="w-[11.5%] h-full flex items-center justify-center">
-                                <inlinesvg class="mt-[.25vw]" src="./img/svg/topspeed.svg"></inlinesvg>
+                        <div class="w-full h-full flex items-center justify-between px-[1vw] relative z-10">
+                            <div class="flex items-center">
+                                <svg class="w-[1vw] h-[1vw] text-white mr-[.5vw]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-white text-[.7vw] font-bold">{{ $root.Language['top_speed'] }}</span>
                             </div>
-                            <div class="w-[2.5%] h-full"></div>
-                            <div class="w-[23%] h-full flex items-center justify-start">
-                                <span class="w-full text-black text-[.8333vw] text-start font-medium font-['Oswald']">{{ $root.Language['top_speed'] }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full h-[2.5%]"></div>
-                <div class="w-full h-[17%] relative" style="background: linear-gradient(0deg, #0000004d 0%, #0000004d 100%), #00F0FF4D;">
-                    <div class="w-full h-full left-0 top-0 absolute">
-                        <div class="h-full left-0 top-0 absolute" :style="{ width: $root.CalculateVehicleStatistic('brake') + '%' }">
-                            <inlinesvg class="w-full h-full" :value="$root.CalculateVehicleStatistic('brake')"></inlinesvg>
-                            <span class="text-black text-[.8333vw] font-medium font-['Oswald'] translate-y-[-50%] right-0 top-[50%] p-[2vw] absolute">{{ $root.SelectedVehicleTable.VehicleBraking + 's' }}</span>
-                        </div>
-                        <div class="w-full h-full flex flex-wrap left-0 top-0 absolute">
-                            <div class="w-[4.5%] h-full"></div>
-                            <div class="w-[11.5%] h-full flex items-center justify-center">
-                                <inlinesvg src="./img/svg/braking.svg"></inlinesvg>
-                            </div>
-                            <div class="w-[2.5%] h-full"></div>
-                            <div class="w-[23%] h-full flex items-center justify-start">
-                                <span class="w-full text-black text-[.8333vw] text-start font-medium font-['Oswald']">{{ $root.Language['braking'] }}</span>
-                            </div>
+                            <span class="text-white text-[.7vw] font-bold">{{ $root.SelectedVehicleTable.VehicleTopSpeed + ' km/h' }}</span>
                         </div>
                     </div>
                 </div>
-                <div class="w-full h-[2.5%]"></div>
-                <div class="w-full h-[17%] relative" style="background: linear-gradient(0deg, #0000004d 0%, #0000004d 100%), #00F0FF4D;">
-                    <div class="w-full h-full left-0 top-0 absolute">
-                        <div class="h-full left-0 top-0 absolute" :style="{ width: $root.CalculateVehicleStatistic('acceleration') + '%' }">
-                            <inlinesvg class="w-full h-full" :value="$root.CalculateVehicleStatistic('acceleration')"></inlinesvg>
-                            <span class="text-black text-[.8333vw] font-medium font-['Oswald'] translate-y-[-50%] right-0 top-[50%] p-[2vw] absolute">{{ $root.SelectedVehicleTable.VehicleAcceleration }}</span>
+                
+                <!-- Braking -->
+                <div class="w-full h-[17%] modern-card relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-red-500/20 to-orange-500/20"></div>
+                    <div class="relative z-10 w-full h-full">
+                        <div class="h-full left-0 top-0 absolute progress-fill rounded-[1.2vw]" :style="{ width: $root.CalculateVehicleStatistic('brake') + '%' }">
+                            <div class="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 rounded-[1.2vw]"></div>
                         </div>
-                        <div class="w-full h-full flex flex-wrap left-0 top-0 absolute">
-                            <div class="w-[4.5%] h-full"></div>
-                            <div class="w-[11.5%] h-full flex items-center justify-center">
-                                <inlinesvg src="./img/svg/acceleration.svg"></inlinesvg>
+                        <div class="w-full h-full flex items-center justify-between px-[1vw] relative z-10">
+                            <div class="flex items-center">
+                                <svg class="w-[1vw] h-[1vw] text-white mr-[.5vw]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" clip-rule="evenodd"/>
+                                    <path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v6a2 2 0 01-2 2V8a2 2 0 00-2-2H8a2 2 0 00-2 2v5a2 2 0 01-2-2V5zM8 5a2 2 0 012-2h8a2 2 0 012 2v6a2 2 0 01-2 2H10a2 2 0 01-2-2V5z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-white text-[.7vw] font-bold">{{ $root.Language['braking'] }}</span>
                             </div>
-                            <div class="w-[2.5%] h-full"></div>
-                            <div class="w-[23%] h-full flex items-center justify-start">
-                                <span class="w-full text-black text-[.8333vw] text-start font-medium font-['Oswald']">{{ $root.Language['acceleration'] }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full h-[2.5%]"></div>
-                <div class="w-full h-[17%] relative" style="background: linear-gradient(0deg, #0000004d 0%, #0000004d 100%), #00F0FF4D;">
-                    <div class="w-full h-full left-0 top-0 absolute">
-                        <div class="h-full left-0 top-0 absolute" :style="{ width: $root.CalculateVehicleStatistic('suspension') + '%' }">
-                            <inlinesvg class="w-full h-full" :value="$root.CalculateVehicleStatistic('suspension')"></inlinesvg>
-                            <span class="text-black text-[.8333vw] font-medium font-['Oswald'] translate-y-[-50%] right-0 top-[50%] p-[2vw] absolute">{{ $root.SelectedVehicleTable.VehicleSuspension + ' lvl' }}</span>
-                        </div>
-                        <div class="w-full h-full flex flex-wrap left-0 top-0 absolute">
-                            <div class="w-[4.5%] h-full"></div>
-                            <div class="w-[11.5%] h-full flex items-center justify-center">
-                                <inlinesvg src="./img/svg/suspension.svg"></inlinesvg>
-                            </div>
-                            <div class="w-[2.5%] h-full"></div>
-                            <div class="w-[23%] h-full flex items-center justify-start">
-                                <span class="w-full text-black text-[.8333vw] text-start font-medium font-['Oswald']">{{ $root.Language['suspension'] }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>                              
-                <div class="w-full h-[2.5%]"></div>
-                <div class="w-full h-[17%] relative" style="background: linear-gradient(0deg, #0000004d 0%, #0000004d 100%), #00F0FF4D;">
-                    <div class="w-full h-full left-0 top-0 absolute">
-                        <div class="h-full left-0 top-0 absolute" :style="{ width: $root.CalculateVehicleStatistic('handling') + '%' }">
-                            <inlinesvg class="w-full h-full" :value="$root.CalculateVehicleStatistic('handling')"></inlinesvg>
-                            <span class="text-black text-[.8333vw] font-medium font-['Oswald'] translate-y-[-50%] right-0 top-[50%] p-[1.7vw] absolute">{{ $root.SelectedVehicleTable.VehicleHandling + '%' }}</span>
-                        </div>
-                        <div class="w-full h-full flex flex-wrap left-0 top-0 absolute">
-                            <div class="w-[4.5%] h-full"></div>
-                            <div class="w-[11.5%] h-full flex items-center justify-center">
-                                <inlinesvg src="./img/svg/handling.svg"></inlinesvg>
-                            </div>
-                            <div class="w-[2.5%] h-full"></div>
-                            <div class="w-[23%] h-full flex items-center justify-start">
-                                <span class="w-full text-black text-[.8333vw] text-start font-medium font-['Oswald']">{{ $root.Language['handling'] }}</span>
-                            </div>
+                            <span class="text-white text-[.7vw] font-bold">{{ $root.SelectedVehicleTable.VehicleBraking + 's' }}</span>
                         </div>
                     </div>
                 </div>
-                <div class="w-full h-[2.5%]"></div>
-                <div class="w-full h-[2.5%] bg-[#00F0FF]"></div>
+                
+                <!-- Acceleration -->
+                <div class="w-full h-[17%] modern-card relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20"></div>
+                    <div class="relative z-10 w-full h-full">
+                        <div class="h-full left-0 top-0 absolute progress-fill rounded-[1.2vw]" :style="{ width: $root.CalculateVehicleStatistic('acceleration') + '%' }">
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-[1.2vw]"></div>
+                        </div>
+                        <div class="w-full h-full flex items-center justify-between px-[1vw] relative z-10">
+                            <div class="flex items-center">
+                                <svg class="w-[1vw] h-[1vw] text-white mr-[.5vw]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-white text-[.7vw] font-bold">{{ $root.Language['acceleration'] }}</span>
+                            </div>
+                            <span class="text-white text-[.7vw] font-bold">{{ $root.SelectedVehicleTable.VehicleAcceleration }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Suspension -->
+                <div class="w-full h-[17%] modern-card relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20"></div>
+                    <div class="relative z-10 w-full h-full">
+                        <div class="h-full left-0 top-0 absolute progress-fill rounded-[1.2vw]" :style="{ width: $root.CalculateVehicleStatistic('suspension') + '%' }">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 rounded-[1.2vw]"></div>
+                        </div>
+                        <div class="w-full h-full flex items-center justify-between px-[1vw] relative z-10">
+                            <div class="flex items-center">
+                                <svg class="w-[1vw] h-[1vw] text-white mr-[.5vw]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-white text-[.7vw] font-bold">{{ $root.Language['suspension'] }}</span>
+                            </div>
+                            <span class="text-white text-[.7vw] font-bold">{{ $root.SelectedVehicleTable.VehicleSuspension + ' lvl' }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Handling -->
+                <div class="w-full h-[17%] modern-card relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-orange-500/20"></div>
+                    <div class="relative z-10 w-full h-full">
+                        <div class="h-full left-0 top-0 absolute progress-fill rounded-[1.2vw]" :style="{ width: $root.CalculateVehicleStatistic('handling') + '%' }">
+                            <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-[1.2vw]"></div>
+                        </div>
+                        <div class="w-full h-full flex items-center justify-between px-[1vw] relative z-10">
+                            <div class="flex items-center">
+                                <svg class="w-[1vw] h-[1vw] text-white mr-[.5vw]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M8 5a1 1 0 100 2h5.586l-1.293 1.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L13.586 5H8zM12 15a1 1 0 100-2H6.414l1.293-1.293a1 1 0 10-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L6.414 15H12z"/>
+                                </svg>
+                                <span class="text-white text-[.7vw] font-bold">{{ $root.Language['handling'] }}</span>
+                            </div>
+                            <span class="text-white text-[.7vw] font-bold">{{ $root.SelectedVehicleTable.VehicleHandling + '%' }}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full h-[2.5%] bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
             </div>
         </div>
         <div class="w-[2.2%] h-full"></div>
     </div>
+    
     <div class="w-full h-[40.5%]"></div>
-    <div class="w-full h-[5.4%] flex flex-wrap" :class="{ 'cursor-grabbing': $root.DraggingCheck }" @mousemove="$root.RotateCamera" @mousedown="$root.LeftClickCheck" @mouseup="$root.LeaveLeftClick" @wheel="$root.HandleZoomScroll">
+    
+    <!-- Control Buttons -->
+    <div class="w-full h-[5.4%] flex flex-wrap slide-in-left" :class="{ 'cursor-grabbing': $root.DraggingCheck }" @mousemove="$root.RotateCamera" @mousedown="$root.LeftClickCheck" @mouseup="$root.LeaveLeftClick" @wheel="$root.HandleZoomScroll">
         <div class="w-[1.7%] h-full"></div>
-        <div class="w-[11.2%] h-full flex items-center justify-center border-[.1042vw] border-[#FFFFFF] cursor-pointer hover:scale-[.97]" @click="$root.LeavePreviewMode()">
-            <span class="w-full text-white text-[.9375vw] text-center font-normal font-['medium']" style="text-shadow: 0vw 0vw .4656vw rgba(255, 255, 255, 0.38);">{{ $root.Language['exit_preview'] }}</span>
-        </div>
+        <button class="w-[11.2%] h-full modern-card neon-glow flex items-center justify-center hover:scale-[.97] transition-all duration-300" @click="$root.LeavePreviewMode()">
+            <span class="gradient-text text-[1vw] text-center font-bold" style="text-shadow: 0vw 0vw .4656vw rgba(8, 145, 178, 0.6);">{{ $root.Language['exit_preview'] }}</span>
+        </button>
         <div class="w-[61.85%] h-full"></div>
-        <div class="w-[11.2%] h-full flex items-center justify-evenly border-[.1042vw] border-[#FFFFFF] cursor-pointer hover:scale-[.97]" @click="$root.InspectExterior()">
-            <inlinesvg class="ml-[.6vw] w-[19%]" src="./img/svg/car.svg"></inlinesvg>
-            <span class="w-full text-white text-[.9375vw] text-center font-normal font-['medium']" style="text-shadow: 0vw 0vw .4656vw rgba(255, 255, 255, 0.38);">{{ $root.Language['inspect_exterior'] }}</span>
-        </div>
+        <button class="w-[11.2%] h-full modern-card neon-glow flex items-center justify-evenly hover:scale-[.97] transition-all duration-300" @click="$root.InspectExterior()">
+            <svg class="w-[1.2vw] h-[1.2vw] text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+            </svg>
+            <span class="gradient-text text-[1vw] text-center font-bold" style="text-shadow: 0vw 0vw .4656vw rgba(8, 145, 178, 0.6);">{{ $root.Language['inspect_exterior'] }}</span>
+        </button>
         <div class="w-[1.15%] h-full"></div>
-        <div class="w-[11.2%] h-full flex items-center justify-evenly bg-[#00F0FF] cursor-pointer hover:scale-[.97]" @click="$root.InspectInterior()">
-            <inlinesvg class="ml-[.7vw] w-[18%]" src="./img/svg/seat.svg"></inlinesvg>
-            <span class="w-full text-black text-[.9375vw] text-center font-normal font-['medium']" style="text-shadow: 0vw 0vw .4656vw rgba(255, 255, 255, 0.38);">{{ $root.Language['inspect_interior'] }}</span>
-        </div>
+        <button class="w-[11.2%] h-full modern-button neon-glow flex items-center justify-evenly hover:scale-[.97] transition-all duration-300" @click="$root.InspectInterior()">
+            <svg class="w-[1.2vw] h-[1.2vw] text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 6.707 6.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span class="text-white text-[1vw] text-center font-bold" style="text-shadow: 0vw 0vw .4656vw rgba(255, 255, 255, 0.6);">{{ $root.Language['inspect_interior'] }}</span>
+        </button>
         <div class="w-[1.7%] h-full"></div>
     </div>
+    
     <div class="w-full h-[1.5%]"></div>
+    
+    <!-- Info Text -->
     <div class="w-full h-[2.2%] flex items-center justify-center">
         <div class="w-full flex items-center justify-center">
-            <span class="text-white opacity-70 text-[1.3542vw] font-medium font-['medium'] mr-[.5vw]">{{ $root.Language['preview_mode_information_text'] }}</span>
-            <span class="text-cyan-400 opacity-90 text-[1.3542vw] font-bold font-['medium']">(360°)</span>
+            <span class="gradient-text text-[1.4vw] font-bold mr-[.5vw]">{{ $root.Language['preview_mode_information_text'] }}</span>
+            <span class="text-cyan-300 text-[1.4vw] font-bold pulse-glow">(360°)</span>
         </div>
     </div>
+    
     <div class="w-full h-[4.2%]"></div>
 </div>
